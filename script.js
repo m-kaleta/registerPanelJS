@@ -48,10 +48,15 @@ const checkPassword = (pass, pass1) => {
 
 const checkEmail = email => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if(email.value === "") {
+        showError()
+    }
+
     if(re.test(email.value)) {
         clearError(email)
     } else {
-        showError(email, "email zawiera niedozwolone znaki!")
+        showError(email, "Email zawiera niedozwolone znaki!")
     }
 }
 
